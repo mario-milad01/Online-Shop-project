@@ -1,12 +1,16 @@
 const mongodb = require('mongodb');
-const mongodbUrl = process.env.MONGODB_URI;
+
 const MongoClient = mongodb.MongoClient;
 
 let database;
-
+let isConnected = false;
 async function connect() {
-  const client = await MongoClient.connect('mongodb://localhost:27017');
-  database = client.db('online-shop');
+    if (isConnected) return;
+   const client = await MongoClient.connect(
+  'mongodb+srv://mario:database-password@cluster0.pnwkwa7.mongodb.net/online-shop?retryWrites=true&w=majority'
+);
+isConnected = true;
+database = client.db('online-shop');
 }
 
 function getDb() {
@@ -20,3 +24,11 @@ module.exports = {
   connect: connect,
   getDb: getDb
 };
+
+
+
+
+
+
+
+

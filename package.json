@@ -1,9 +1,10 @@
 {
   "name": "mileston-project-onlineshop",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "api/index.js",
   "scripts": {
-    "start": "node app.js"
+    "dev":"vercel dev",
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "Mario Milad Helmy",
@@ -19,6 +20,7 @@
     "express": "^5.1.0",
     "express-session": "^1.18.2",
     "mongodb": "^6.18.0",
+    "mongoose": "^8.17.1",
     "multer": "^2.0.2",
     "uuid": "^11.1.0"
   },
