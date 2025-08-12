@@ -52,4 +52,3 @@ db.connect().then(function(){
     console.log('Failed to connect to the database!');
     console.log(error);
 });
-module.exports = app;
