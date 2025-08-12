@@ -1,24 +1,14 @@
-const mongoose = require('mongoose');
+const mongodb = require('mongodb');
 
-let isConnected = false;
+const MongoClient = mongodb.MongoClient;
 
-async function connectToDatabase() {
-  if (isConnected) return;
+let database;
 
-  try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI, {
-      dbName: 'online-shop',
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-
-    isConnected = conn.connections[0].readyState === 1;
-    console.log('MongoDB Connected');
-  } catch (err) {
-    console.error(' MongoDB Connection Failed:', err);
-    throw err;
-  }
+async function connect() {
+  const client = await MongoClient.connect('mongodb://localhost:27017');
+  database = client.db('online-shop');
 }
+
 function getDb() {
   if (!database) {
     throw { message: 'Database connection not established!' };
@@ -26,15 +16,7 @@ function getDb() {
   return database;
 }
 
-
-
-
 module.exports = {
-  connectToDatabase:connectToDatabase,
-  getDb:getDb
+  connect: connect,
+  getDb: getDb
 };
-
-
-
-
-

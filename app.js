@@ -46,10 +46,11 @@ app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
 
-// db.connect().then(function(){
-//     console.log("Database connected successfully.");
-// }).catch(function(error){
-//     console.log('Failed to connect to the database!');
-//     console.log(error);
-// });
+db.connect().then(function(){
+    app.listen(3000);
+    console.log("Database connected successfully.");
+}).catch(function(error){
+    console.log('Failed to connect to the database!');
+    console.log(error);
+});
 module.exports = app;
