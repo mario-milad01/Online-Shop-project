@@ -1,4 +1,4 @@
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 async function connectDB() {
   if (mongoose.connection.readyState >= 1) {
