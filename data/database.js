@@ -3,13 +3,11 @@ const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 
 let database;
-let isConnected = false;
+
 async function connect() {
-    if (isConnected) return;
-   const client = await MongoClient.connect(
-  'mongodb+srv://mario:database-password@cluster0.pnwkwa7.mongodb.net/online-shop?retryWrites=true&w=majority'
+ const client = await MongoClient.connect(
+  process.env.MONGODB_URI
 );
-isConnected = true;
 database = client.db('online-shop');
 }
 
@@ -28,7 +26,25 @@ module.exports = {
 
 
 
+// let database;
+// let isConnected = false;
 
+// async function connect() {
+//   if (isConnected) return;
+//   const client = await MongoClient.connect(process.env.MONGODB_URI);
+//   database = client.db('online-shop');
+//   isConnected = true;
+// }
 
+// function getDb() {
+//   if (!database) {
+//     throw { message: 'Database connection not established!' };
+//   }
+//   return database;
+// }
 
-
+// module.exports = {
+//   connect,
+//   getDb,
+//   isConnected
+// };
