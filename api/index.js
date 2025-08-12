@@ -1,9 +1,6 @@
 const connectDB = require('../data/database'); // will be our new mongoose connect
 const app = require('../app');
-const path = require('path');
-const express = require('express');
 
-app.use(express.static(path.join(__dirname, '../public')));
 
 let isConnected = false;
 
