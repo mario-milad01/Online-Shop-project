@@ -21,5 +21,4 @@ module.exports = async function (req, res) {
   }
 
  
-  return app(req, res);
 };
