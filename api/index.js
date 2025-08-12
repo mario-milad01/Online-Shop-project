@@ -1,24 +1,30 @@
-const connectDB = require('../data/database'); // will be our new mongoose connect
-const app = require('../app');
-const path = require('path');
 const express = require('express');
+const path = require('path');
+const connectToDatabase = require('../data/database');
 
+const app = express();
+
+// Serve static files from "public"
 app.use(express.static(path.join(__dirname, '../public')));
 
-let isConnected = false;
+// Ignore favicon requests to avoid 500 spam
+app.get('/favicon.ico', (req, res) => res.status(204).end());
 
-module.exports = async function (req, res) {
-  if (!isConnected) {
-    try {
-      await connectDB(); // use mongoose connection
-      isConnected = true;
-      console.log("Connected to MongoDB");
-    } catch (err) {
-      console.error("MongoDB connection failed:", err);
-      res.status(500).send("Database connection failed");
-      return;
-    }
+// Example API route
+app.get('/api/products', async (req, res) => {
+  try {
+    await connectToDatabase();
+    // Example: Fetch products from your MongoDB collection
+    res.json({ message: 'Products loaded successfully!' });
+  } catch (err) {
+    res.status(500).json({ error: 'Database error' });
   }
+});
 
- 
-};
+// Handle all other requests (e.g., frontend pages)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
+
+// Vercel requires a handler export
+module.exports = app;
