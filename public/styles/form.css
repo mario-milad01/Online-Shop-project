@@ -1,0 +1,53 @@
+#form{
+    font: inherit;
+    width: 70%;
+    margin: 5rem auto;
+    color:var(--color-gray-100);
+    text-align: center;
+}
+#form h1{
+    font-size: 1.5rem;
+}
+#form form{
+    width: 100%;
+    background-color: var(--color-gray-600);
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-medium);
+    margin: var(--space-8) auto;
+    padding: var(--space-4) 0;
+}
+form p{
+    margin: 0;
+}
+#form label{
+    display: block;
+    color: var(--color-gray-100);
+    padding: var(--space-2) 0;
+}
+#form input{
+    width: 80%;
+    padding: 0.3rem;
+    margin: 0.2rem auto;
+}
+
+#switch-form a{
+    text-decoration: none;
+    color: var(--color-primary-500);
+    font-size: 1.2rem;
+}
+hr{
+    width: 70%;
+    border-color: var(--color-primary-200);
+}
+
+
+#image-upload-control img{
+    display: none;
+    margin: auto;
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: var(--border-reduis-meduim);
+}

@@ -1,0 +1,15 @@
+<div class="products-items">
+    <img src="<%= product.imageUrl %>" alt="<%= product.title%>">
+    <div class="product-item-content">
+        <h2><%= product.title%></h2>
+    </div>
+    <div class="product-item-buttons">
+        <% if(locals.isAdmin){ %>
+            <a href="/admins/products/<%= product.id %>" class="btn btn-alt">View & Edit</a>
+            <button class="btn btn-alt" data-productid="<%= product.id %>">Delete</button>
+        <%}else{%>
+            <a href="/products/<%= product.id %>" class="btn btn-alt">View Details</a>
+        <%}%>
+        
+    </div>
+</div>

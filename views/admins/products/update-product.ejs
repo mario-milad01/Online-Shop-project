@@ -1,0 +1,14 @@
+<%-include('../../shared/includes/head',{pageTitle:'Update Products'})%>
+<link rel="stylesheet" href="../../../styles/form.css">
+<link rel="stylesheet" href="../../../styles/admins-products.css">
+<script src="../../../scripts/image-uploaded.js" defer></script>
+
+</head>
+<body>
+    <%-include('../../shared/includes/header')%>
+    <main id="form">
+        <h1>Adding Products</h1>
+        <%- include('../includes/product-form',{submitPath:'/admins/products/'+product.id , product:product , imageRequireFlag:false })%>
+    </main>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<%-include('../../shared/includes/head',{pageTitle:'Products Administration'})%>
+<link rel="stylesheet" href="../../../styles/products.css">
+<link rel="stylesheet" href="../../../styles/admins-products.css">
+<script src="../../../scripts/product-management.js" defer></script>
+</head>
+<body>
+    <%-include('../../shared/includes/header')%>
+    <main class="admin_products">
+        <h1>Prodoucts Administration</h1>
+        <section class="managment-products">
+            <h2>Manage Products</h2>
+            <p>
+                <a href="/admins/products/new" class="btn">Add Product</a>
+            </p>
+            
+        </section>
+        <section>
+            <ul class="products-list">
+                <% for(const product of products){ %>
+                <li>
+                    <%-include('../../shared/includes/product-item',{product:product})%>
+                </li>
+                <% } %>
+            </ul>    
+        </section>
+        
+    </main>
+</body>
+</html>

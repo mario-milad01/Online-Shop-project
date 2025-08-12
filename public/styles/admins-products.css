@@ -1,0 +1,22 @@
+.admin_products{
+    color: var(--color-primary-100);
+    max-width: 60rem;
+    text-align: left;
+    margin: auto;
+}
+.admin_products h1{
+    text-align: center;
+}
+
+.managment-products a{
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-decoration: none;
+}  
+.managment-products a:hover{
+    background-color: var(--color-primary-700);
+}
+form textarea{
+    width: 60%;
+    resize: none;
+}
