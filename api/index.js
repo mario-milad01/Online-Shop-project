@@ -1,6 +1,8 @@
 const db = require('../data/database');
 const app = require('../app');
-
+const path = require('path');
+const express = require('express');
+app.use(express.static(path.join(__dirname, '../public')));
 let isConnected = false;
 
 module.exports = async function (req,res) {
