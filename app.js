@@ -45,12 +45,18 @@ app.use('/admins',adminRoutes);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
+const PORT = process.env.PORT || 3000; // fallback for local dev
 
-db.connect().then(function(){
-    app.listen(3000);
+db.connect()
+  .then(function () {
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
     console.log("Database connected successfully.");
-}).catch(function(error){
-    console.log('Failed to connect to the database!');
+  })
+  .catch(function (error) {
+    console.log("Failed to connect to the database!");
     console.log(error);
-});
+  });
+
 module.exports = app;
